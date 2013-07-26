@@ -9,7 +9,7 @@ It's extremely easy to add your own packages and you can set up an individual "s
 
 If you create a Package that you think would be useful to other developers, feel free to fork this repository and submit a pull request with your package added to ``devWatchr/devWatchr/devWatchrPackages`` and documentation added to ``devWatchr/documentation/packages/YOURPACKAGE.md``.
 
-If you have an issue using devWatchr, please open a Github issue on our [issues page](https://github.com/matthewkremer/devWatchr/issues).
+If you have an issue or question about devWatchr, please open a Github issue on our [issues page](https://github.com/matthewkremer/devWatchr/issues).
 
 
 
