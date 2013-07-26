@@ -46,3 +46,8 @@ Full settings.py Example
   	}
   ]
 ```
+
+Questions & Issues
+------------------
+
+If you have an issue or question about devWatchr, please open a Github issue on our [issues page](https://github.com/matthewkremer/devWatchr/issues).
