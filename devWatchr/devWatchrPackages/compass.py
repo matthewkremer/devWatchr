@@ -1,16 +1,8 @@
 import pyinotify, subprocess, devWatchr
 
 '''
-	Compiles SASS/SCSS using Compass. Settings include the default settings and:
-	{
-		'cwd': The current working directory that should be used when running the compass command.
-		Any available Compass commands that can be sent.
-		Ex:
-		'--css-dir': '/home/user/myproject/css/'
-		Any Compass command that do not need a corresponding value should have their value set to True.
-		Ex:
-		'--no-line-comments': True
-	}
+	View Documentation here:
+	https://github.com/matthewkremer/devWatchr/blob/master/documentation/packages/compass.md
 '''
 
 class compassCompile(devWatchr.watcher):
