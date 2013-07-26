@@ -1,6 +1,8 @@
 devWatchr Command Package
 =========================
 
+Provides the **command** ``handle`` to devWatchr.
+
 Description
 -----------
 
