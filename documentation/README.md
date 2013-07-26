@@ -24,3 +24,8 @@ Packages
 [compass](https://github.com/matthewkremer/devWatchr/blob/master/documentation/packages/compass.md): Allows you to compile SASS or SCSS.
 
 [minifyJS](https://github.com/matthewkremer/devWatchr/blob/master/documentation/packages/minifyJS.md): Allows you to minify a folder of Javascript files. Also provides a debug version of the combined scripts.
+
+Questions & Issues
+------------------
+
+If you have an issue or question about devWatchr, please open a Github issue on our [issues page](https://github.com/matthewkremer/devWatchr/issues).
