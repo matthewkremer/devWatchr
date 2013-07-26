@@ -79,3 +79,8 @@ After you have created your settings file, you can run devWatchr using the follo
 ```
 
 devWatchr runs in the foreground and provides you with output as it detects changes, so it is recommended that you run it in it's own putty (or whatver program you use to ssh) window.
+
+Questions & Issues
+------------------
+
+If you have an issue or question about devWatchr, please open a Github issue on our [issues page](https://github.com/matthewkremer/devWatchr/issues).
