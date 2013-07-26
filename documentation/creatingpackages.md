@@ -48,3 +48,8 @@ Adding your Package to devWatchr
 After you have made your package, save the ``.py`` file to your ``devWatchrPackages`` folder (the example installation has this located at ``/usr/bin/devWatchrPackages``.
 
 If you create a Package that you think would be useful to other developers, feel free to fork this repository and submit a pull request with your package added to ``devWatchr/devWatchr/devWatchrPackages`` and documentation added to ``devWatchr/documentation/packages/YOURPACKAGE.md``. For more information on how to submit a pull, visit [this tutorial](http://www.netmagazine.com/tutorials/share-your-open-source-project-github).
+
+Questions & Issues
+------------------
+
+If you have an issue or question about devWatchr, please open a Github issue on our [issues page](https://github.com/matthewkremer/devWatchr/issues).
