@@ -24,6 +24,7 @@ Use it for good, not evil!
 Documentation and information can be found at http://devwatchr.com/
 
 Made by Matthew Kremer in 2013:
+
 https://github.com/matthewkremer
 http://www.linkedin.com/in/matthewkremer
 
