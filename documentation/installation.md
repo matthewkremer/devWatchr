@@ -10,3 +10,14 @@ and move the contents of the ``devWatchr/devWatchr`` folder over to your server 
   git clone git@github.com:matthewkremer/devWatchr devWatchr
   cp -r devWatchr/devWatchr/* /usr/bin/
 ```
+
+The structure you want to end up with is:
+
+```
+  /usr
+    /bin
+      devWatchr.py
+      /devWatchrPackages
+        __init__.py
+        Packages .py Files Here
+```
