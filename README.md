@@ -26,6 +26,7 @@ Documentation and information can be found at http://devwatchr.com/
 Made by Matthew Kremer in 2013:
 
 https://github.com/matthewkremer
+
 http://www.linkedin.com/in/matthewkremer
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR 
