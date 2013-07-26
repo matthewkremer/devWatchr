@@ -17,7 +17,7 @@ class compassCompile(devWatchr.watcher):
 		self.compile_str = self.compile_str.split()
 
 	def _run(self, event):
-		if event.name[-5:] != ".scss" and event.name[-5:] != ".scss":
+		if event.name[-5:] != ".scss" and event.name[-5:] != ".sass":
 			return
 		devWatchr.colors.printBlue('==> Compass CSS Modification Detected')
 		if 'cwd' in self.settings:
