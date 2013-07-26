@@ -2,7 +2,15 @@ import pyinotify, os, os.path, devWatchr
 from StringIO import StringIO
 
 '''
-
+	Compiles all Javascript files within the watched directory into one minified and one debug version.
+	Settings include the default settings and:
+	{
+		'minify_to': What the files should be named that are created. See below.
+	}
+	
+	Two files will be created in the watched directory:
+	[[minify_to]].min.js -> A minified version of all Javascript files.
+	[[minify_to]].js -> A debug version of all Javascript files.
 '''
 
 class minifyJS(devWatchr.watcher):
