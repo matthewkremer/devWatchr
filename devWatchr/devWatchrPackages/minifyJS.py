@@ -57,10 +57,10 @@ class minifyJS(devWatchr.watcher):
 			org_size = os.path.getsize(debug_file)
 			new_size = os.path.getsize(out_file)
 
-			print '=> %s' % out_file
-			print 'Original: %.2f kB' % (org_size / 1024.0)
-			print 'Compressed: %.2f kB' % (new_size / 1024.0)
-			print 'Reduction: %.1f%%' % (float(org_size - new_size) / org_size * 100)
+			devWatchr.colors.printGreen('==> %s' % out_file)
+			devWatchr.colors.printGreen('Original: %.2f kB' % (org_size / 1024.0))
+			devWatchr.colors.printGreen('Compressed: %.2f kB' % (new_size / 1024.0))
+			devWatchr.colors.printGreen('Reduction: %.1f%%' % (float(org_size - new_size) / org_size * 100))
 
 		else:
 		
