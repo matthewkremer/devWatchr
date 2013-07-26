@@ -10,6 +10,8 @@ If you create a Package that you think would be useful to other developers, feel
 General Documentation
 ---------------------
 
+[Installation](https://github.com/matthewkremer/devWatchr/blob/master/documentation/installation.md)
+
 [How to Use](https://github.com/matthewkremer/devWatchr/blob/master/documentation/howtouse.md)
 
 [How to Create Your own Packages](https://github.com/matthewkremer/devWatchr/blob/master/documentation/creatingpackages.md)
