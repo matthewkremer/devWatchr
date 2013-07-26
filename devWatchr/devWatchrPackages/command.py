@@ -1,11 +1,8 @@
 import pyinotify, subprocess, devWatchr
 
 '''
-	Executes a linux command on the system. Settings include the default settings and:
-	{
-		'command': A string representing a command line command that will be executed.
-		'cwd': The current working directory that the command should be run using.
-	}
+	View Documentation here:
+	https://github.com/matthewkremer/devWatchr/blob/master/documentation/packages/command.md
 '''
 
 class command(devWatchr.watcher):
