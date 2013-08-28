@@ -35,7 +35,7 @@ class minifyJS(devWatchr.watcher):
                         return
 		devWatchr.colors.printBlue('==> JS Modification Detected')
 
-		js_path = event.path
+		js_path = self.settings['watch']
 		minify_to = self.settings['minify_to']
 		verbose = False
 
