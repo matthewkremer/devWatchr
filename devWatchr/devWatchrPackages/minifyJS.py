@@ -6,9 +6,27 @@ from StringIO import StringIO
 	https://github.com/matthewkremer/devWatchr/blob/master/documentation/packages/minifyJS.md
 '''
 
+def writeLoop(temp, directory, settings):
+	in_files = os.listdir(directory)
+	in_files.sort()
+	
+	if len(in_files) != 0:
+		for f in in_files:
+			if f[-3:] == '.js':
+				fh = open('%s/%s' % (directory, f))
+				data = fh.read() + '\n'
+				fh.close()
+				temp.write(data)
+				print ' + %s' % f
+			elif os.path.isdir(directory+'/'+f):
+				if settings['recursive']:
+					writeLoop(temp, directory+'/'+f, settings)
+
 class minifyJS(devWatchr.watcher):
 	def __init__(self, settings):
 		self.settings = settings
+		if 'recursive' not in self.settings:
+			self.settings['recursive'] = False
 
 	def _run(self,event):
 		if not event.name[-3:] == ".js":
@@ -31,40 +49,24 @@ class minifyJS(devWatchr.watcher):
 		except OSError:
 			pass
 		
-		in_files = os.listdir(js_path)
-		in_files.sort()
+		temp = open(debug_file, 'w')
+		writeLoop(temp, js_path, self.settings)
+		temp.close()
+			
+		out = open(out_file, 'w')
 		
-		if len(in_files) != 0:
-			
-			temp = open(debug_file, 'w')
-			for f in in_files:
-				fh = open('%s/%s' % (js_path, f))
-				data = fh.read() + '\n'
-				fh.close()
-				
-				temp.write(data)
-
-				print ' + %s' % f
-			temp.close()
-			
-			out = open(out_file, 'w')
-			
-			jsm = JavascriptMinify()
-			jsm.minify(open(debug_file,'r'), out)
-			
-			out.close()
-			
-			org_size = os.path.getsize(debug_file)
-			new_size = os.path.getsize(out_file)
-
-			devWatchr.colors.printGreen('==> %s' % out_file)
-			devWatchr.colors.printGreen('Original: %.2f kB' % (org_size / 1024.0))
-			devWatchr.colors.printGreen('Compressed: %.2f kB' % (new_size / 1024.0))
-			devWatchr.colors.printGreen('Reduction: %.1f%%' % (float(org_size - new_size) / org_size * 100))
-
-		else:
+		jsm = JavascriptMinify()
+		jsm.minify(open(debug_file,'r'), out)
 		
-			print 'No Javascript Files Found'
+		out.close()
+		
+		org_size = os.path.getsize(debug_file)
+		new_size = os.path.getsize(out_file)
+
+		devWatchr.colors.printGreen('==> %s' % out_file)
+		devWatchr.colors.printGreen('Original: %.2f kB' % (org_size / 1024.0))
+		devWatchr.colors.printGreen('Compressed: %.2f kB' % (new_size / 1024.0))
+		devWatchr.colors.printGreen('Reduction: %.1f%%' % (float(org_size - new_size) / org_size * 100))
 
 handles = {
 	'minifyJS': minifyJS
