@@ -58,7 +58,17 @@ class watcher(pyinotify.ProcessEvent):
                 self._run_cmd(event)
         def process_IN_UNMOUNT(self, event):
                 self._run_cmd(event)
+                
+class multiWatcher(watcher):
+        def __init__(self, settings):
+		self.settings = settings
+		self.handlers = self.settings['handle'].split('|')
 
+	def _run(self,event):
+		for handler in self.handlers:
+		        tempWatcher = handlers[handler](self.settings)
+		        tempWatcher._run(event)
+		
 class bcolors:
         HEADER = '\033[95m'
         OKBLUE = '\033[94m'
@@ -119,7 +129,10 @@ if __name__ == '__main__':
                 watch = {}
                 watch.update(defaults)
                 watch.update(w)
-                wm.add_watch(watch['watch'],watch['events'],handlers[watch['handle']](watch),watch['recursive'],watch['auto_add'],watch['do_glob'])
+                if '|' in watch['handle']:
+                        wm.add_watch(watch['watch'],watch['events'],multiWatcher(watch),watch['recursive'],watch['auto_add'],watch['do_glob'])
+                else:
+                        wm.add_watch(watch['watch'],watch['events'],handlers[watch['handle']](watch),watch['recursive'],watch['auto_add'],watch['do_glob'])
                 print bcolors.OKGREEN + ('Watching %s with %s.' % (watch['watch'],watch['handle'])) + bcolors.ENDC
         notifier = pyinotify.Notifier(wm)
         notifier.loop()
