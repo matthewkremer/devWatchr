@@ -12,15 +12,16 @@ def writeLoop(temp, directory, settings):
 	
 	if len(in_files) != 0:
 		for f in in_files:
-			if f[-3:] == '.js':
-				fh = open('%s/%s' % (directory, f))
-				data = fh.read() + '\n'
-				fh.close()
-				temp.write(data)
-				print ' + %s' % f
-			elif os.path.isdir(directory+'/'+f):
-				if settings['recursive']:
-					writeLoop(temp, directory+'/'+f, settings)
+			if settings['minify_to']+'.js' != f:
+				if f[-3:] == '.js':
+					fh = open('%s/%s' % (directory, f))
+					data = fh.read() + '\n'
+					fh.close()
+					temp.write(data)
+					print ' + %s' % f
+				elif os.path.isdir(directory+'/'+f):
+					if settings['recursive']:
+						writeLoop(temp, directory+'/'+f, settings)
 
 class minifyJS(devWatchr.watcher):
 	def __init__(self, settings):
