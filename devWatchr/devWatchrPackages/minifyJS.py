@@ -9,6 +9,7 @@ from StringIO import StringIO
 def writeLoop(temp, directory, settings):
 	in_files = os.listdir(directory)
 	in_files.sort()
+	folders = []
 	
 	if len(in_files) != 0:
 		for f in in_files:
@@ -21,7 +22,9 @@ def writeLoop(temp, directory, settings):
 					print ' + %s' % f
 				elif os.path.isdir(directory+'/'+f):
 					if settings['recursive']:
-						writeLoop(temp, directory+'/'+f, settings)
+						folders.append(f)
+	for f in folders:
+		writeLoop(temp, directory+'/'+f, settings)
 
 class minifyJS(devWatchr.watcher):
 	def __init__(self, settings):
