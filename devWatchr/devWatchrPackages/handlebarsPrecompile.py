@@ -21,7 +21,7 @@ class precompile(devWatchr.watcher):
 		compile_path = self.settings['watch']
 		compile_to = self.settings['compile_to']
 		
-		command = ('sudo handlebars %s -f %s.js -o -m' % (compile_path, compile_to)).split()
+		command = ('sudo handlebars %s -f %s.js -m' % (compile_path, compile_to)).split()
 		
 		if 'cwd' in self.settings:
 		  subprocess.Popen(command, cwd=self.settings['cwd'])
