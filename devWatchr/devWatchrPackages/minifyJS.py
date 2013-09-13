@@ -16,7 +16,7 @@ def writeLoop(temp, directory, settings):
 			if settings['minify_to']+'.js' != f:
 				if f[-3:] == '.js':
 					fh = open('%s/%s' % (directory, f))
-					data = fh.read() + '\n'
+					data = ('\n\n/*\n%s/%s\n\n*/\n%s' % (directory, f, fh.read()))
 					fh.close()
 					temp.write(data)
 					print ' + %s' % f
